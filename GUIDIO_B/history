@@ -1,0 +1,39 @@
+npm init -y # crea package.json con tu proyecto.
+npm install express cors dotenv //Dependencias principales (runtime)
+npx tsc --init //inicalizar TypeScript, crea tsconfig.json con la configuración de compilación.
+npm install -D typescript ts-node nodemon @types/node @types/express @types/cors
+npm install prisma @prisma/client //CLI para manejar migraciones, modelo de datos, etc y Cliente que se usa en tu código para interactuar con la DB.
+npm install -D @types/node
+npx prisma init //inicializar prisma crea schema.prima y .env
+npx prisma db pull //probar que conecta
+npx prisma migrate dev --name init // para sincronizar y crear tablas
+
+
+# cuando he realizado cambios no los ha pillado bien he tenido que borrar todo 
+# Desde la raíz del backend
+borrar dist, node_modules y prisma/migrations
+# luego 
+npm install
+# y luego 
+npx prisma db push
+npx prisma generate
+
+# para borrar la bbdd y generarla de nuevo
+npx primma migrate reset --force
+npx prisma migrate dev --name inicial
+
+
+# para ejecutar pruebas de test con 
+node --loader ts-node/esm test/test.ts
+
+npm install jsonwebtoken bcrypt #para crear y verificar tokens JWT para hashear contraseñas
+npm install --save-dev @types/jsonwebtoken @types/bcrypt //son para TypeScript.
+
+
+#de pronto empezo a fallar el arranque sin dar motivo. me dice que en lugar de nodemon utilice tsx
+npm i -D tsx
+
+npm install multer
+npm install --save-dev @types/multer
+
+npm install nodemailer@latest //ya contiene tipos

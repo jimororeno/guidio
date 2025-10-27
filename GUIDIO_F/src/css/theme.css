@@ -1,0 +1,177 @@
+/* Colores principales */
+:root {
+    /* --primary-color: #8bd040;
+    --primary-color-light: #a3d55e;
+    --primary-color-dark: #6fae30;
+    --secondary-color: #11b7f5;
+    --secondary-color-light: #5bc0de;
+    --secondary-color-dark: #1e60c4; */
+
+    --primary-color: #ff7f50;
+    --primary-color-light: #ff9f70;
+    /* Coral claro */
+    --primary-color-dark: #e6735c;
+    /* Coral oscuro */
+    --secondary-color: #f1dea9;
+    /* Dodger Blue */
+    --secondary-color-light: #f7e6c9;
+    /* Azul claro */
+    --secondary-color-dark: #d4b483;
+    /* Azul oscuro */
+
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --background-color: #f3f1eb;
+    --text-color: #443618;
+    --text-color-light: #ffffff;
+    --text-color-dark: #d4b483;
+
+}
+
+/* para fijar el footer abajo */
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* altura completa de la ventana */
+}
+
+.main-content {
+    flex: 1;
+    /* ocupa el espacio restante */
+}
+
+/* 🌞 Estilo por defecto (light) */
+body,
+body[data-bs-theme="light"] {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+.form-label {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+
+/* text */
+.custom-text-primary-dark {
+    color: var(--primary-color-dark);
+}
+
+.custom-title {
+    color: var(--primary-color-dark);
+    font-weight: bold !important;
+}
+
+.custom-backend-down {
+    color: var(--text-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.custom-normal-text {
+    color: var(--text-color) !important;
+}
+
+
+.custom-primary-color {
+    color: var(--primary-color);
+}
+
+.custom-primary-color-dark {
+    color: var(--primary-color-dark);
+}
+
+.custom-secondary-color {
+    color: var(--secondary-color);
+}
+
+.custom-bg-secondary-color {
+    background-color: var(--secondary-color);
+    color: var(--text-color) !important;
+}
+
+.custom-secondary-ligth-color {
+    color: var(--secondary-color-light);
+}
+
+.custom-bg-secondary-ligth-color {
+    background-color: var(--secondary-color-light);
+    color: var(--text-color) !important;
+}
+
+.custom-bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color-light) !important;
+}
+
+.custom-bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color-light) !important;
+}
+
+.custom-bg-secondary-light {
+    background-color: var(--secondary-color-light) !important;
+    color: var(--text-color) !important;
+}
+
+.custom-bg-primary-light {
+    background-color: var(--primary-color-light) !important;
+    color: var(--text-color) !important;
+}
+
+
+.custom-link {
+    color: var(--primary-color-dark);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.custom-link-normal {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.custom-gray-color {
+    color: #4f4b4b !important;
+}
+
+.dropdown-item:active {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-light);
+}
+
+
+/* Borde y fondo */
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco casi opaco */
+    border: 1px solid #ccc;
+    /* Opcional: borde */
+    border-radius: 6px;
+    /* Bordes redondeados */
+    padding: 0.25rem 0.5rem;
+    /* Ajustar tamaño interno si quieres */
+    color: var(--text-color-dark);
+}
+
+
+.navbar-toggler {
+    border-color: transparent !important;
+    /* opcional, limpia el borde */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(30,30,30, 1)'  stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}

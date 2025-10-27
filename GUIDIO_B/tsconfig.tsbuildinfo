@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/config/prisma.ts","./src/controllers/locationscontroller.ts","./src/routes/locations.ts","./src/test/testuser.ts"],"version":"5.9.3"}

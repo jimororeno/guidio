@@ -1,0 +1,126 @@
+:root {
+  /* Modo Claro (valores por defecto) */
+  --background-color: #ffffff; /* Blanco */
+  --text-color: #333333; /* Gris oscuro */
+  --primary-color: #007bff; /* Azul de botones/enlaces */
+  --secondary-background: #f8f9fa; /* Gris claro para tarjetas/contenedores */
+  --border-color: #dee2e6; /* Gris para bordes */
+  --card-background: #ffffff; /* Fondo de tarjetas */
+}
+
+body.dark-mode {
+  /* Modo Oscuro (sobrescribe las variables) */
+  --background-color: #121212; /* Negro muy oscuro */
+  --text-color: #e0e0e0; /* Blanco grisáceo */
+  --primary-color: #8ab4f8; /* Azul más claro para elementos interactivos */
+  --secondary-background: #1e1e1e; /* Gris oscuro para tarjetas/contenedores */
+  --border-color: #333333; /* Gris más oscuro para bordes */
+  --card-background: #1e1e1e; /* Fondo de tarjetas en modo oscuro */
+}
+
+/* Aplica estas variables a tus elementos */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.card {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ejemplo para un botón */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-color); /* El texto del botón podría ser el color de fondo del body */
+}
+.btn-primary:hover {
+  filter: brightness(1.2); /* Oscurecer/aclarar al pasar el ratón */
+}
+
+
+
+/* Estilos para el overlay de la lupa en la imagen del evento */
+.image-zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0; /* Por defecto invisible */
+  transition: opacity 0.3s ease; /* Transición suave al pasar el ratón */
+  border-radius: 0.25rem; /* Ajustar al border-radius de la imagen */
+}
+
+/* Mostrar el overlay al pasar el ratón por encima de la imagen */
+.position-relative:hover .image-zoom-overlay {
+  opacity: 1;
+}
+
+/* Estilos para el Modal de Imagen */
+.image-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro para el modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Por encima de otros elementos, como el navbar de Bootstrap */
+  padding: 1rem;
+}
+
+.image-modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 90vw; /* Ajusta el tamaño máximo del modal */
+  max-height: 90vh; /* Ajusta el tamaño máximo del modal */
+  overflow: auto; /* Para permitir scroll si la imagen es muy grande */
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 80vh; /* La imagen no debe ser más alta que el contenido del modal */
+  display: block; /* Elimina espacios extra bajo la imagen */
+  margin: 0 auto; /* Centra la imagen */
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #fff; /* Color blanco para el botón de cerrar */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10; /* Asegura que el botón esté por encima de la imagen */
+  text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Sombra para mejor visibilidad */
+}
+
+/* Para navegadores con dark mode, ajustar el color del botón de cerrar */
+@media (prefers-color-scheme: dark) {
+  .btn-close-modal {
+    color: #f8f9fa; /* Color más claro en dark mode */
+  }
+}
+
+.event-icon {
+  width: 60px;   /* Tamaño del icono */
+  height: 60px;
+  object-fit: contain; /* Asegura que la imagen no se distorsione */
+}

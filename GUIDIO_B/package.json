@@ -1,0 +1,41 @@
+{
+  "name": "my-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev2": "nodemon --watch src --ext ts --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev1": "nodemon --watch src --ext ts --exec ts-node --esm src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test:user": "tsx src/test/test_create_user.ts",
+    "test:category": "tsx src/test/test_create_category.ts",
+    "test:poi": "tsx src/test/test_create_poi.ts",
+    "test:entry": "tsx src/test/test_create_entry.ts",
+    "test:vote": "tsx src/test/test_create_vote.ts",
+    "test:all": "npm run test:user && npm run test:category && npm run test:poi && npm run test:entry && npm run test:vote"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.10"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.17.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^20.19.22",
+    "nodemon": "^3.0.2",
+    "prisma": "^6.17.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

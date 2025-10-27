@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // JS moderno compatible con Node 18+
+    "module": "ESNext", // Para usar import/export
+    "moduleResolution": "node", // Cómo se resuelven los módulos
+    "rootDir": "src", // Carpeta donde está tu código TS
+    "outDir": "dist", // Carpeta donde se genera JS compilado
+    "strict": true, // Verificaciones estrictas de TypeScript
+    "esModuleInterop": true, // Permite importar librerías CommonJS con import
+    "forceConsistentCasingInFileNames": true, // Evita problemas de mayúsculas/minúsculas
+    "skipLibCheck": true, // Omite la verificación de tipos de librerías externas
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+  },
+  "include": ["src", "test/*.ts"], // Archivos TS a compilar
+  "exclude": ["node_modules", "dist"] // Archivos a ignorar
+}

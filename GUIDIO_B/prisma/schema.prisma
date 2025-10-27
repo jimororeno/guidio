@@ -1,0 +1,129 @@
+// Prisma schema file
+// Aprende más: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =========================
+// MODELOS DE USUARIOS
+// =========================
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String
+  email     String     @unique
+  password  String
+  profile   String     // Ej: "admin", "editor", "user"
+  picture   String?    // URL o ruta al archivo en tu servidor / cloud
+  bio       String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  deletedAt DateTime?
+
+  pois           Poi[]             // Pois creados por el usuario
+  entries     Entry[]        // entradas creadas por el usuario
+  votes  Vote[]    // votos realizados por el usuario
+  resetTokens PasswordResetToken[] //tokens del usuario
+}
+
+
+// =========================
+// Category
+// =========================
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   // Ej: "RELIGIOSOS", "ARQUITECTÓNICOS"
+  parentId  Int?     // null si es categoría principal
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  parent    Category? @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children  Category[] @relation("CategoryHierarchy")
+
+  pois      Poi[]
+}
+
+// =========================
+// MODELO DE Poi
+// =========================
+
+model Poi {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  userId      Int
+  categoryId  Int
+    latitude  Float    
+  longitude Float  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+
+  // Relaciones
+  user        User        @relation(fields: [userId], references: [id])
+  category    Category @relation(fields: [categoryId], references: [id])
+
+  entries  Entry[]  // entradas asociadas al Poi
+}
+
+// =========================
+// MODELO DE ENTRADAS DE USUARIO EN Pois
+// =========================
+model Entry {
+  id        Int       @id @default(autoincrement())
+  poiId     Int
+  userId    Int
+  content   String     @db.Text
+  source    String?    // Ej: "Internet", "Propio", etc.
+  language  String?    // Ej: "es", "en", "fr"
+  rate      Int?       // puntuación agregada, puede ser positiva o negativa
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  deletedAt DateTime?
+
+  // Relaciones
+  poi       Poi        @relation(fields: [poiId], references: [id])
+  user      User       @relation(fields: [userId], references: [id])
+  votes     Vote[] // votos recibidos por esta entrada
+}
+
+// =========================
+// MODELO DE VOTOS EN ENTRADAS DE Poi
+// =========================
+model Vote {
+  id         Int       @id @default(autoincrement())
+  value      Int       // puede ser positivo o negativo
+  userId     Int
+  entryId Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  // Relaciones
+  user      User       @relation(fields: [userId], references: [id])
+  entry  Entry   @relation(fields: [entryId], references: [id])
+
+  // Restricción: un usuario solo puede votar una vez por la misma entrada
+  @@unique([userId, entryId])
+}
+
+// =========================
+// MODELO PasswordResetToken
+// =========================
+model PasswordResetToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,130 @@
+/* ============================
+   Avatar e Iniciales
+============================ */
+.user-avatar {
+  width: 40px;          /* Tamaño estándar */
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.user-initials {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================
+   Badges de notificación/mensajes
+============================ */
+.badge-icon {
+  position: absolute;
+  font-size: 0.7em;
+  padding: 0.3em 0.5em;
+  min-width: 1.5em;
+  text-align: center;
+  line-height: 1;
+}
+
+.badge-icon-dropdown-open {
+  position: relative;
+  right: -68px;
+  top: -28px;
+}
+
+.message-badge {
+  right: 27px;
+  top: 13px;
+}
+
+.notification-badge {
+  right: -6px;
+  top: 13px;
+}
+
+.nav-item.dropdown .nav-link {
+  position: relative;  /* Para badges */
+  padding-right: 15px;
+}
+
+/* ============================
+   Flecha animada
+============================ */
+.arrow {
+  display: inline-block;
+  margin-left: 0.3rem;
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* ============================
+   Menú desplegable animado
+============================ */
+.dropdown-animated {
+  position: absolute;       /* posicionar respecto al contenedor padre */
+  right: 0;                 /* alinear al borde derecho */
+  top: 100%;                /* justo debajo del botón */
+  z-index: 1000;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin-top: 0.3rem;       /* pequeño espacio debajo del botón */
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown-animated.show {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.nav-item.dropdown {
+  position: relative; /* para que el absolute del menú se posicione respecto a este contenedor */
+}
+
+/* ============================
+   Links dentro del dropdown
+============================ */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item i {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f3f5;
+  color: #000;
+  cursor: pointer;
+}
+
+.dropdown-divider {
+  margin: 0.25rem 0;
+  border-top: 1px solid #e9ecef;
+}

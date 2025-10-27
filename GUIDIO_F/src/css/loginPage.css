@@ -1,0 +1,51 @@
+/* LoginPage personalizado */
+.custom-login-container {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color-light), var(--secondary-color));
+}
+
+.custom-login-card {
+  max-width: 380px;
+  width: 100%;
+}
+
+.custom-form-input {
+  padding: .8rem;
+}
+
+
+/* Botones sociales */
+.custom-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.custom-social-btn.facebook {
+  background: #3b5998;
+}
+.custom-social-btn.twitter {
+  background: #1da1f2;
+}
+.custom-social-btn.google {
+  background: #db4437;
+}
+
+
+/* Signup link */
+.custom-signup-link {
+  color: var(--primary-color-dark);
+}
+
+.custom-signup-link:hover {
+  text-decoration: underline;
+}
+
+
+.custom-divider {
+    font-size: 0.85rem;
+    color: #aaa;
+}

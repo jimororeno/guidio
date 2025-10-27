@@ -1,0 +1,94 @@
+/* Sobrescribir botones */
+.custom-btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.custom-btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+} 
+
+
+.custom-btn-secondary {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
+
+.custom-btn-secondary:disabled {
+    background-color: #d1caca !important;
+    
+}
+
+.custom-btn-secondary:hover, .custom-btn-secondary:focus, .custom-btn-secondary:active, .custom-btn-secondary.active, .open>.dropdown-toggle.custom-btn-secondary {
+    background-color:var(--secondary-color);
+    filter: brightness(110%);
+     border-color: var(--secondary-color);
+     color: var(--text-color);
+}
+
+.custom-btn-outline-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.custom-btn-outline-secondary-vacio {
+    background-color: var(--secondary-color);
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.custom-btn-outline-secondary:hover, .custom-btn-outline-secondary:focus, .custom-btn-outline-secondary:active, .custom-btn-outline-secondary.active, .open>.dropdown-toggle.custom-btn-outline-secondary {
+    background-color: var(--secondary-color-dark);
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+
+/* Botón con gradiente */
+.custom-btn-gradient {
+  
+  padding: 0.9rem;
+  background: linear-gradient(90deg, var(--primary-color-light), var(--primary-color));
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+    font-weight: bold;
+}
+
+.custom-btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.custom-button-lg {
+  padding: 0.9rem;
+}
+
+/* Solo en móviles (pantallas menores a 992px, breakpoint lg) */
+@media (max-width: 991.98px) {
+  .navbar-collapse .nav-link.btn {
+    display: block;          
+    width: 100%;             
+    text-align: left;        
+    /* background-color: transparent;  */
+    border: none;           
+    padding: 0.5rem 1rem;   
+    margin-bottom: 0.5rem;   
+  }
+
+  .navbar-collapse .nav-link.btn:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* efecto hover sutil */
+  }
+
+  .navbar-collapse {
+    padding: 1rem; /* opcional: margen interior para que no quede pegado */
+  }
+}
+

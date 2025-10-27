@@ -1,0 +1,33 @@
+
+/* 🌙 Tema oscuro */
+body[data-bs-theme="dark"] {
+  background-color: #121212; /* casi negro */
+  color: #f1f1f1; /* texto claro */
+}
+
+/* Tarjetas */
+body[data-bs-theme="dark"] .card {
+  background-color: #1e1e1e;
+  border-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+body[data-bs-theme="dark"] .form-label {
+    color: var(--text-color-dark);
+    
+}
+
+body[data-bs-theme="dark"] .custom-normal-text {
+    color: var(--text-color-dark) !important;
+    
+}
+
+body[data-bs-theme="dark"] .custom-link-normal{
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body[data-bs-theme="dark"] .custom-backend-down {
+    color: var(--text-color-dark);
+}
